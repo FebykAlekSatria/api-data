@@ -1,4 +1,8 @@
 import Pesan from "../models/pesan.js";
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
+dotenv.config()
+
 export const createPesan = async (req, res) => {
     try {
         await Pesan.create(req.body);
@@ -10,4 +14,12 @@ export const createPesan = async (req, res) => {
         res.json({ message: error.message })
     }
 
+}
+export const acsess = async (req, res) => {
+    const token = jwt.sign(process.env.SECRET_KEY)
+    res.header('auth_token', token).json({
+        message: 'acsess',
+        validation: 0,
+        auth_token: token,
+    })
 }
