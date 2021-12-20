@@ -3,7 +3,7 @@ export const createPesan = async (req, res) => {
     try {
         await Pesan.create(req.body);
         res.json({
-            "message": "Create Question",
+            "message": "Create Data",
             body: req.body
         });
     } catch (error) {
