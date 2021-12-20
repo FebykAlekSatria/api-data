@@ -16,7 +16,7 @@ export const createPesan = async (req, res) => {
 
 }
 export const acsess = async (req, res) => {
-    const token = jwt.sign(process.env.SECRET_KEY)
+    const token = jwt.sign('febyk', process.env.SECRET_KEY)
     res.header('auth_token', token).json({
         message: 'acsess',
         validation: 0,
